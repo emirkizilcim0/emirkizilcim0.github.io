@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emir Kizilcim - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
-            color: white;
+            font-family: 'Poppins', sans-serif;
+            background-color: #2e2e2e; /* Dark background */
+            color: #f0f0f0; /* Light text */
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* Navigation Bar */
         nav {
-            background: #000;
+            background: #1a1a1a; /* Darker navbar */
             position: fixed;
             width: 100%;
-            padding: 15px 0;
+            padding: 20px 0;
             top: 0;
             z-index: 1000;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         nav ul {
@@ -33,24 +36,21 @@
 
         nav ul li {
             display: inline;
-            margin: 0 15px;
+            margin: 0 20px;
         }
 
         nav ul li a {
-            color: white;
+            color: #3498db; /* Light blue text */
             text-decoration: none;
             font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
 
         nav ul li a:hover {
-            color: #00aaff;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 20px;
-            text-align: center;
+            color: #2ecc71; /* Soft green on hover */
+            transform: scale(1.1);
         }
 
         /* Hero Section */
@@ -60,34 +60,88 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(to right, #000428, #004e92);
+            background-image: url('night-sky.jpg'); /* Replace with a dark, chill image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
         }
 
         #hero h1 {
-            font-size: 48px;
+            font-size: 60px;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
         }
 
         #hero p {
-            font-size: 20px;
+            font-size: 22px;
             margin-top: 10px;
         }
 
         /* Button Styling */
         .btn {
-            background: #007bff;
+            background: #3498db; /* Light blue button */
             color: white;
             padding: 12px 24px;
             text-decoration: none;
             display: inline-block;
-            border-radius: 5px;
+            border-radius: 30px;
             margin-top: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .btn:hover {
-            background: white;
-            color: #007bff;
-            box-shadow: 0px 0px 10px #007bff;
+            background: #2ecc71; /* Soft green hover effect */
+            color: white;
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.6);
+            transform: scale(1.1);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            background-color: #1a1a1a; /* Dark background for sections */
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        section h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #3498db;
+        }
+
+        section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #cccccc; /* Lighter text for readability */
+        }
+
+        /* About Section - Image Styling */
+        #about img {
+            border-radius: 50%;
+            max-width: 200px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Smooth Scroll Animation */
+        .smooth-scroll {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .smooth-scroll:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -96,13 +150,13 @@
     <!-- Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" class="smooth-scroll">About</a></li>
+            <li><a href="#education" class="smooth-scroll">Education</a></li>
+            <li><a href="#experience" class="smooth-scroll">Experience</a></li>
+            <li><a href="#projects" class="smooth-scroll">Projects</a></li>
+            <li><a href="#skills" class="smooth-scroll">Skills</a></li>
+            <li><a href="#hobbies" class="smooth-scroll">Hobbies</a></li>
+            <li><a href="#contact" class="smooth-scroll">Contact</a></li>
         </ul>
     </nav>
 
@@ -116,24 +170,26 @@
     <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello, I'm Emir Kizilcim, a 21-year-old Software Engineering student at Muğla Sıtkı Koçman University. 
-        Passionate about technology, problem-solving, and cybersecurity.</p>
+        <p>Hello, I'm Emir Kızılçim. I'm 21 years old and studying software engineering at Muğla Sıtkı KoçmanUniversity. I attended a preparatory program in my first year, and now I'm a second-year student.I've always been interested in computers and am constantly trying to stay active in this field andimprove myself.</p>
+        <img src="your-photo.jpg" alt="Emir Kizilcim Photo"> <!-- Replace with your photo -->
     </section>
 
     <!-- Education Section -->
     <section id="education">
         <h2>Education</h2>
-        <p>🎓 Muğla Sıtkı Koçman University, Software Engineering (2023 - Present)</p>
+        <p>🎓 Muğla Sıtkı Koçman University, Software Engineering (2022 - 2023) - Preparatory Class (English) </p>
+        p>🎓 Muğla Sıtkı Koçman University, Software Engineering (2023 - now) - Software Engineering (English) </p>
     </section>
 
     <!-- Experience Section -->
     <section id="experience">
         <h2>Experience</h2>
+        <p>I learnt Python and Java in my first year. Now, in second grade, I’m learning C for betterunderstanding in data structure. Also, I have 3.72 GPA currently.</p>
         <ul>
             <li>Problem-solving on LeetCode, Hackerrank, Codeforces, and CodeWars</li>
             <li>Participated in HackTheBox CTF Competitions (2022, 2023)</li>
-            <li>Worked with Apache Maven, Tomcat, PostgreSQL, and more at Virtus ArGe Software Inc.</li>
-            <li>Developed an AI financial forecasting project</li>
+            <li>Worked with Apache Maven, Tomcat, PostgreSQL, and more for DSpace8 installation at Virtus ArGe Software Inc.</li>
+            <li>Developed an AI financial forecasting project named "BEDE"</li>
         </ul>
     </section>
 
@@ -146,18 +202,21 @@
     <!-- Skills Section -->
     <section id="skills">
         <h2>Skills</h2>
-        <p>Python | Java | C | Node.js | PostgreSQL | Apache Tools</p>
+        <p>Python | Java | C | C++ | Node.js | PostgreSQL | Apache Tools</p>
     </section>
 
     <!-- Hobbies Section -->
     <section id="hobbies">
         <h2>Hobbies</h2>
+        <p>I've been working on video editing since high school. The programs I use areAfter Effects and Premiere Pro, and I've also used Blender 3D for 3D designs. I upload myedits to my YouTube channel, where they've received quite good comments and views.</p>
+        <p>My channel: <a href="https://www.youtube.com/@alysse8243" target="_blank">YouTube Channel</a></p>
         <p>🎬 Video Editing (After Effects, Premiere Pro) | 🎨 3D Design (Blender)</p>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact</h2>
+        <p>Phone Number: +090 530 883 92 40</p>
         <p>Email: <a href="mailto:emirkizilcim@posta.mu.edu.tr">emirkizilcim@posta.mu.edu.tr</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/emir-kizilcim/" target="_blank">LinkedIn Profile</a></p>
     </section>
