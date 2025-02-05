@@ -3,234 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emir Kizilcim - CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Emir Kızılçım - Software Engineer</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #2e2e2e; /* Dark background */
-            color: #f0f0f0; /* Light text */
+        :root {
+            --primary-color: #e0e0e0;
+            --accent-1: #00ff88;
+            --accent-2: #0099ff;
+            --bg-dark: #1a1a1a;
+            --bg-medium: #2d2d2d;
+            --bg-light: #3d3d3d;
+            --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+        }
+    
+        * {
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            transition: all 0.3s ease;
         }
-
-        /* Navigation Bar */
-        nav {
-            background: #1a1a1a; /* Darker navbar */
-            position: fixed;
-            width: 100%;
-            padding: 20px 0;
-            top: 0;
-            z-index: 1000;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #3498db; /* Light blue text */
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #2ecc71; /* Soft green on hover */
-            transform: scale(1.1);
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-image: url('night-sky.jpg'); /* Replace with a dark, chill image */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        #hero h1 {
-            font-size: 60px;
-            font-weight: 600;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-        }
-
-        #hero p {
-            font-size: 22px;
-            margin-top: 10px;
-        }
-
-        /* Button Styling */
-        .btn {
-            background: #3498db; /* Light blue button */
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 30px;
-            margin-top: 15px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background: #2ecc71; /* Soft green hover effect */
-            color: white;
-            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.6);
-            transform: scale(1.1);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-            background-color: #1a1a1a; /* Dark background for sections */
-            margin-bottom: 40px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        section h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-            font-weight: 600;
-            color: #3498db;
-        }
-
-        section p {
-            font-size: 18px;
+    
+        body {
             line-height: 1.6;
-            color: #cccccc; /* Lighter text for readability */
+            color: var(--primary-color);
+            background-color: var(--bg-dark);
+            min-height: 100vh;
         }
-
-        /* About Section - Image Styling */
-        #about img {
-            border-radius: 50%;
-            max-width: 200px;
-            margin-top: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
         }
-
-        /* Smooth Scroll Animation */
-        .smooth-scroll {
-            transition: transform 0.3s ease-in-out;
+    
+        .sidebar {
+            width: 300px;
+            background: var(--bg-medium);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
         }
-
-        .smooth-scroll:hover {
-            transform: scale(1.05);
+    
+        .main-content {
+            flex: 1;
+        }
+    
+        h1, h2, h3 {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+    
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--bg-medium);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--gradient);
+            opacity: 0.1;
+            z-index: -1;
+            transform: rotate(45deg);
+        }
+    
+        .contact-info div {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 8px;
+            background: var(--bg-light);
+        }
+    
+        a {
+            color: var(--accent-1);
+            text-decoration: none;
+            position: relative;
+        }
+    
+        a:hover {
+            color: var(--accent-2);
+            transform: translateX(5px);
+        }
+    
+        .education-entry, .experience-entry {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: var(--bg-light);
+        }
+    
+        .date {
+            width: 150px;
+            color: var(--accent-1);
+            font-weight: 500;
+        }
+    
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    
+        .skill-tag {
+            background: var(--bg-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            position: relative;
+            cursor: pointer;
+        }
+    
+        .skill-tag:hover {
+            background: var(--gradient);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+        }
+    
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+    
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+        .section {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    
+        /* Glow effects */
+        ::selection {
+            background: var(--accent-1);
+            color: var(--bg-dark);
+        }
+    
+        .sidebar {
+            border: 1px solid rgba(255,255,255,0.1);
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Emir Kızılçım</h1>
+            <div class="section contact-info">
+                <h2>Contact</h2>
+                <div><a href="tel:+0905308839240">+090 530 883 92 40</a></div>
+                <div><a href="mailto:emirkizilcim@posta.mu.edu.tr">emirkizilcim@posta.mu.edu.tr</a></div>
+                <h3>Addresses</h3>
+                <div>Susurluk/Balıkesir</div>
+                <div>Menteşe/Muğla</div>
+                
+                <h2>Languages</h2>
+                <div>English (B2-C1)</div>
+                <div>Turkish (Native)</div>
+                
+                <h2>Links</h2>
+                <div><a href="https://github.com/emirkizilcim" target="_blank">GitHub</a></div>
+                <div><a href="https://linkedin.com/in/emir-kızılçım" target="_blank">LinkedIn</a></div>
+                <div><a href="https://youtube.com/emir-channel" target="_blank">YouTube</a></div>
+            </div>
+        </div>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="#about" class="smooth-scroll">About</a></li>
-            <li><a href="#education" class="smooth-scroll">Education</a></li>
-            <li><a href="#experience" class="smooth-scroll">Experience</a></li>
-            <li><a href="#projects" class="smooth-scroll">Projects</a></li>
-            <li><a href="#skills" class="smooth-scroll">Skills</a></li>
-            <li><a href="#hobbies" class="smooth-scroll">Hobbies</a></li>
-            <li><a href="#contact" class="smooth-scroll">Contact</a></li>
-        </ul>
-    </nav>
+        <div class="main-content">
+            <div class="section">
+                <h2>Education</h2>
+                <div class="education-entry">
+                    <div class="date">2022 - 2023</div>
+                    <div>
+                        <h3>Muğla Sıtkı Koçman University</h3>
+                        <p>Preparatory Class (English)</p>
+                    </div>
+                </div>
+                <div class="education-entry">
+                    <div class="date">2023 - Present</div>
+                    <div>
+                        <h3>Muğla Sıtkı Koçman University</h3>
+                        <p>Software Engineering (Current GPA: 3.72)</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <h1>Emir Kizilcim</h1>
-        <p>Software Engineering Student | Problem Solver | Developer</p>
-        <a href="#contact" class="btn">Contact Me</a>
-    </section>
+            <div class="section">
+                <h2>Technical Skills</h2>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">Data Structures</span>
+                    <span class="skill-tag">Apache Maven</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Cybersecurity</span>
+                </div>
+            </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello, I'm Emir Kızılçim. I'm 21 years old and studying software engineering at Muğla Sıtkı KoçmanUniversity. I attended a preparatory program in my first year, and now I'm a second-year student.I've always been interested in computers and am constantly trying to stay active in this field andimprove myself.</p>
-        <img src="your-photo.jpg" alt="Emir Kizilcim Photo"> <!-- Replace with your photo -->
-    </section>
+            <div class="section">
+                <h2>Projects & Experience</h2>
+                <div class="experience-entry">
+                    <div class="date">2023</div>
+                    <div>
+                        <h3>Financial Prediction AI</h3>
+                        <p>Python-based AI project for monthly financial forecasting (<a href="https://github.com/emirkizilcim0/bede">BEDE</a>)</p>
+                    </div>
+                </div>
+                <div class="experience-entry">
+                    <div class="date">2022-2023</div>
+                    <div>
+                        <h3>CTF Competitions</h3>
+                        <p>HackTheBox participant (Top 250/950 universities)</p>
+                    </div>
+                </div>
+                <div class="experience-entry">
+                    <div class="date">2023</div>
+                    <div>
+                        <h3>DSpace 8 Implementation</h3>
+                        <p>Installation and upgrade processes for Virtus ArGe</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Education Section -->
-    <section id="education">
-        <h2>Education</h2>
-        <p>🎓 Muğla Sıtkı Koçman University, Software Engineering (2022 - 2023) - Preparatory Class (English) </p>
-        <p>🎓 Muğla Sıtkı Koçman University, Software Engineering (2023 - now) - Software Engineering (English) </p>
-    </section>
+            <div class="section">
+                <h2>Coding Profiles</h2>
+                <div class="skills">
+                    <a href="https://leetcode.com/emir" class="skill-tag" target="_blank">LeetCode</a>
+                    <a href="https://hackerrank.com/emir" class="skill-tag" target="_blank">HackerRank</a>
+                    <a href="https://codeforces.com/emir" class="skill-tag" target="_blank">CodeForces</a>
+                    <a href="https://codewars.com/emir" class="skill-tag" target="_blank">CodeWars</a>
+                </div>
+            </div>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2>Experience</h2>
-        <p>I learnt Python and Java in my first year. Now, in second grade, I’m learning C for betterunderstanding in data structure. Also, I have 3.72 GPA currently.</p>
-        <ul>
-            <li>Problem-solving on LeetCode, Hackerrank, Codeforces, and CodeWars</li>
-            <li>Participated in HackTheBox CTF Competitions (2022, 2023)</li>
-            <li>Worked with Apache Maven, Tomcat, PostgreSQL, and more for DSpace8 installation at Virtus ArGe Software Inc.</li>
-            <li>Developed an AI financial forecasting project named "BEDE"</li>
-        </ul>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>💻 Check out my GitHub: <a href="https://github.com/alysse0" target="_blank">GitHub Profile</a></p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <p>Python | Java | C | C++ | Node.js | PostgreSQL | Apache Tools</p>
-    </section>
-
-    <!-- Hobbies Section -->
-    <section id="hobbies">
-        <h2>Hobbies</h2>
-        <p>I've been working on video editing since high school. The programs I use areAfter Effects and Premiere Pro, and I've also used Blender 3D for 3D designs. I upload myedits to my YouTube channel, where they've received quite good comments and views.</p>
-        <p>My channel: <a href="https://www.youtube.com/@alysse8243" target="_blank">YouTube Channel</a></p>
-        <p>🎬 Video Editing (After Effects, Premiere Pro) | 🎨 3D Design (Blender)</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Phone Number: +090 530 883 92 40</p>
-        <p>Email: <a href="mailto:emirkizilcim@posta.mu.edu.tr">emirkizilcim@posta.mu.edu.tr</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/emir-kizilcim/" target="_blank">LinkedIn Profile</a></p>
-    </section>
-
-    <script>
-        // Smooth Scrolling
-        document.querySelectorAll('nav ul li a').forEach(anchor => {
-            anchor.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-
+            <div class="section">
+                <h2>References</h2>
+                <div class="reference">
+                    <h3>Zeynep Filiz Eren</h3>
+                    <p>Asst. Prof. & CEO, Virtus ArGe<br>
+                    <a href="mailto:zeynepfilizeren@mu.edu.tr">zeynepfilizeren@mu.edu.tr</a></p>
+                </div>
+                <div class="reference">
+                    <h3>Hasan Ali Özkan</h3>
+                    <p>Research Assistant & CTO, Virtus ArGe<br>
+                    <a href="mailto:hasanaliozkan@mu.edu.tr">hasanaliozkan@mu.edu.tr</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
