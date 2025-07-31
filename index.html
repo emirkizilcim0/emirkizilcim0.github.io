@@ -3,272 +3,1013 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emir Kızılçım - Software Engineer</title>
+    <title>Emir Kızılçim | Jr. Software Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #e0e0e0;
-            --accent-1: #00ff88;
-            --accent-2: #0099ff;
-            --bg-dark: #1a1a1a;
-            --bg-medium: #2d2d2d;
-            --bg-light: #3d3d3d;
-            --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            --primary: #8a2be2;
+            --primary-dark: #6a1cb9;
+            --secondary: #00b4d8;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #f8f9fa;
+            --gray: #2d2d2d;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-    
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            transition: all 0.3s ease;
         }
-    
+
         body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--light);
             line-height: 1.6;
-            color: var(--primary-color);
-            background-color: var(--bg-dark);
-            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--darker) 0%, #1a1a2e 100%);
+            background-attachment: fixed;
         }
-    
+
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
             display: flex;
             gap: 30px;
         }
-    
-        .sidebar {
-            width: 300px;
-            background: var(--bg-medium);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: var(--transition);
         }
-    
-        .main-content {
-            flex: 1;
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
         }
-    
-        h1, h2, h3 {
-            background: var(--gradient);
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
+            background-clip: text;
+            color: transparent;
         }
-    
-        .section {
+
+        .hero p {
+            font-size: 1.2rem;
             margin-bottom: 30px;
-            padding: 20px;
-            background: var(--bg-medium);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--gray);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(10, 10, 10, 0.7);
+            border-radius: 30px;
+            margin: 50px auto;
+            padding: 80px 0;
             position: relative;
             overflow: hidden;
         }
-    
-        .section::before {
+
+        .about:before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: var(--gradient);
-            opacity: 0.1;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.2;
             z-index: -1;
-            transform: rotate(45deg);
         }
-    
-        .contact-info div {
-            margin-bottom: 10px;
-            padding: 8px;
-            border-radius: 8px;
-            background: var(--bg-light);
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
         }
-    
-        a {
-            color: var(--accent-1);
-            text-decoration: none;
-            position: relative;
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
         }
-    
-        a:hover {
-            color: var(--accent-2);
-            transform: translateX(5px);
+
+        .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
         }
-    
-        .education-entry, .experience-entry {
+
+        .about-content {
             display: flex;
-            justify-content: space-between;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            background: var(--bg-light);
         }
-    
-        .date {
-            width: 150px;
-            color: var(--accent-1);
-            font-weight: 500;
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
         }
-    
+
         .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skill-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .skill-info p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: rgba(30, 30, 46, 0.6);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(138, 43, 226, 0.3);
+        }
+
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .project-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-bottom: 20px;
         }
-    
-        .skill-tag {
-            background: var(--bg-light);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            position: relative;
-            cursor: pointer;
+
+        .project-tag {
+            background: rgba(138, 43, 226, 0.15);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
-    
-        .skill-tag:hover {
-            background: var(--gradient);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+
+        .project-links {
+            display: flex;
+            gap: 15px;
         }
-    
-        @media (max-width: 768px) {
-            .container {
+
+        .project-link {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            grid-column: span 1;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(30, 30, 46, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            color: var(--light);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(30, 30, 46, 0.8);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 70px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .footer-socials a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-image {
+                position: relative;
+                width: 80%;
+                margin: 50px auto 0;
+                right: 0;
+                transform: none;
+                top: 0;
+            }
+
+            .hero {
+                height: auto;
+                padding: 150px 0 80px;
+            }
+
+            .about-content {
                 flex-direction: column;
             }
-            .sidebar {
-                width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: span 1;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
             }
         }
-    
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
+    .contact-methods {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin: 40px 0;
+    }
     
-        .section {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
+    .contact-card {
+        flex: 1;
+        min-width: 200px;
+        padding: 25px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
     
-        /* Glow effects */
-        ::selection {
-            background: var(--accent-1);
-            color: var(--bg-dark);
-        }
+    .contact-card:hover {
+        transform: translateY(-5px);
+    }
     
-        .sidebar {
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 15px;
+        background: #e3f2fd;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-icon svg {
+        width: 24px;
+        height: 24px;
+        color: #666;
+    }
+    
+    .contact-card h3 {
+        margin: 10px 0;
+        color: #333;
+    }
+    
+    .contact-card p {
+        margin: 0;
+        color: #666;
+    }
+    
+    .contact-card a {
+        color: #666;
+        text-decoration: none;
+    }
+    
+    .contact-note {
+        margin-top: 30px;
+        font-style: italic;
+        color: #666;
+    }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <h1>Emir Kızılçım</h1>
-            <div class="section contact-info">
-                <h2>Contact</h2>
-                <div><a href="tel:+0905308839240">+090 530 883 92 40</a></div>
-                <div><a href="mailto:emirkizilcim@posta.mu.edu.tr">emirkizilcim@posta.mu.edu.tr</a></div>
-                <h3>Addresses</h3>
-                <div>Susurluk/Balıkesir</div>
-                <div>Menteşe/Muğla</div>
-                
-                <h2>Languages</h2>
-                <div>English (B2-C1)</div>
-                <div>Turkish (Native)</div>
-                
-                <h2>Links</h2>
-                <div><a href="https://github.com/emirkizilcim" target="_blank">GitHub</a></div>
-                <div><a href="https://linkedin.com/in/emir-kızılçım" target="_blank">LinkedIn</a></div>
-                <div><a href="https://youtube.com/emir-channel" target="_blank">YouTube</a></div>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">EK</a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/emirkizilcim0" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/emir-kizilcim/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@alysse8243" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span>Emir Kızılçim</span></h1>
+                <p>Hello, I'm Emir Kızılçim. I was born in 2004. I'm studying software engineering at Muğla Sıtkı Koçman University. I attended a preparatory program in my first year, and now I'm a third-year student.I've always been interested in computers and am constantly trying to stay active in this field and improve myself. I'm mostly interested in machine learning and AI consepts.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
             </div>
         </div>
+        <div class="hero-image floating" >
+            <img src="C:\Users\Emir\Desktop\emirkizilcim0.github.io\logos\ing.jpeg" alt="Developer workspace">
+        </div>
+    </section>
 
-        <div class="main-content">
-            <div class="section">
-                <h2>Education</h2>
-                <div class="education-entry">
-                    <div class="date">2022 - 2023</div>
-                    <div>
-                        <h3>Muğla Sıtkı Koçman University</h3>
-                        <p>Preparatory Class (English)</p>
-                    </div>
-                </div>
-                <div class="education-entry">
-                    <div class="date">2023 - Present</div>
-                    <div>
-                        <h3>Muğla Sıtkı Koçman University</h3>
-                        <p>Software Engineering (Current GPA: 3.72)</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>Get to know more about my background, skills, and professional journey</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Mindset: Just Do It!</h3>
+                    <p>I’m Emir Kızılçim, a Software Engineering student at Muğla Sıtkı Koçman University, currently in my third year after completing the preparatory program in my first year.</p>
+                    <p>On my GitHub, I maintain a personal website repository and CV under emirkizilcim0, where I showcase my projects, code samples, and portfolio.</p>
+                    <p> My focus spans software engineering, development, and enthusiastic involvement with AI tools and problem-solving.</p>
+                    
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>AI Development</h4>
+                                <p>PyTorch, Keras, LangChain, LLMs</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Backend Development</h4>
+                                <p>Flask, Python, OAuth, Testing</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Database Management</h4>
+                                <p>MySQL, PostgreSQL</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-list-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Task-Based Management</h4>
+                                <p>Solution-driven, Curious, Problem-solving</p>
+                            </div>
+                        </div>
+                         <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Video Editor</h4>
+                                <p>After Effects, Premiere Pro, Blender 3D <br> My Channel: <a href="https://www.youtube.com/@alysse8243">ALYSSE</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="section">
-                <h2>Technical Skills</h2>
-                <div class="skills">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">C</span>
-                    <span class="skill-tag">Data Structures</span>
-                    <span class="skill-tag">Apache Maven</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Cybersecurity</span>
-                </div>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Projects</h2>
+                <p>Check out some of my recent work and personal projects</p>
             </div>
-
-            <div class="section">
-                <h2>Projects & Experience</h2>
-                <div class="experience-entry">
-                    <div class="date">2023</div>
-                    <div>
-                        <h3>Financial Prediction AI</h3>
-                        <p>Python-based AI project for monthly financial forecasting (<a href="https://github.com/emirkizilcim0/bede">BEDE</a>)</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\Emir\Desktop\emirkizilcim0.github.io\logos\logo.png" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Seamless Pass: AI powered Biometrics Based on Face and Iris</h3>
+                        <p>Seamless-Pass is a web-based face recognition and liveness detection system built entirely with custom-trained models, excluding any pretrained models for recognition or anti-spoofing. </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Deep Learning</span>
+                            <span class="project-tag">Artificial Intelligence</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/emirkizilcim0/Seamless-Pass-AI-powered-Biometrics-Based-on-Face-and-Iris" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="experience-entry">
-                    <div class="date">2022-2023</div>
-                    <div>
-                        <h3>CTF Competitions</h3>
-                        <p>HackTheBox participant (Top 250/950 universities)</p>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\Emir\Desktop\emirkizilcim0.github.io\logos\background.jpg" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Behavioral Economics & Decision Engineering</h3>
+                        <p>FOR CFOs & Finance Teams,Company Executives and Startups & Small Businesses WHO needs to improve budgeting accuracy, make more informed investment decision, identify potential financial risks and take proactive steps, THE BEDE (which stands for Behavioral Economics & Decision Engineering)is a financial analysis & forecasting software THAT allows to analyzes company finances to predict spending needed for profitability.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Time Series</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/emirkizilcim0/BEDE-Behavioral-Economics-Decision-Engineering" class="project-link"# target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="experience-entry">
-                    <div class="date">2023</div>
-                    <div>
-                        <h3>DSpace 8 Implementation</h3>
-                        <p>Installation and upgrade processes for Virtus ArGe</p>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\Emir\Desktop\emirkizilcim0.github.io\logos\eket_logo.png" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3>EKET Package</h3>
+                        <p>This is an LLM package for ingesting data, asking questions and making it generate questions about the data. It is developed for <a href="https://virtusarge.com/">Virtus-ArGe</a>.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">LLM</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Artificial Intelligence</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="section">
-                <h2>Coding Profiles</h2>
-                <div class="skills">
-                    <a href="https://leetcode.com/emir" class="skill-tag" target="_blank">LeetCode</a>
-                    <a href="https://hackerrank.com/emir" class="skill-tag" target="_blank">HackerRank</a>
-                    <a href="https://codeforces.com/emir" class="skill-tag" target="_blank">CodeForces</a>
-                    <a href="https://codewars.com/emir" class="skill-tag" target="_blank">CodeWars</a>
+    <!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Prefer direct contact? Here's how to reach me</p>
+        </div>
+        
+        <div class="contact-content" style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <!-- Contact Info Cards -->
+            <div class="contact-methods">
+                <!-- Email -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:emirkzlcm0@gmail.com">emirkzlcm0@gmail.com</a></p>
+                </div>
+                
+                <!-- Phone -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+1234567890">+90 530 883 92 40</a></p>
+                </div>
+                
+                <!-- Location -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3>Based In</h3>
+                    <p>Balıkesir, Turkey</p>
                 </div>
             </div>
-
-            <div class="section">
-                <h2>References</h2>
-                <div class="reference">
-                    <h3>Zeynep Filiz Eren</h3>
-                    <p>Asst. Prof. & CEO, Virtus ArGe<br>
-                    <a href="mailto:zeynepfilizeren@mu.edu.tr">zeynepfilizeren@mu.edu.tr</a></p>
-                </div>
-                <div class="reference">
-                    <h3>Hasan Ali Özkan</h3>
-                    <p>Research Assistant & CTO, Virtus ArGe<br>
-                    <a href="mailto:hasanaliozkan@mu.edu.tr">hasanaliozkan@mu.edu.tr</a></p>
-                </div>
+            
+            <div class="contact-note">
+                <p>Feel free to reach out via email or phone. I'm available for freelance work and collaborations!</p>
             </div>
         </div>
     </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Emir Kızılçim</div>
+            
+            <div class="footer-socials">
+                <a href="https://github.com/emirkizilcim0" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/emir-kizilcim/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@alysse8243" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 Emir Kızılçim. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#8a2be2'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#8a2be2',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Update copyright year
+        document.querySelector('.copyright').innerHTML = `&copy; ${new Date().getFullYear()} Emir Kızılcım. All Rights Reserved.`;
+    </script>
 </body>
 </html>
